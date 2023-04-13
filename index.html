@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Realidad Aumentada con AR.js</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+  <script src="script.js"></script>
+
+    <a-scene embedded arjs="trackingMethod: best;">
+      <a-marker preset="hiro">
+        <a-entity
+                  position="0 0 0"
+                  scale="1 1 1"
+                  rotation="0 0 0"
+                  gltf-model="https://cdn.glitch.global/4a630592-5050-4960-9cc1-e6f62728a5d8/Teapot_Prueba.glb?v=1681342212151"></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const password = "advisian";
+        let inputPassword;
+
+        do {
+            inputPassword = prompt("Por favor, ingresa la contraseña:");
+            if (inputPassword === null) {
+                window.location.href = "https://www.advisian.com/en-gb";
+            }
+        } while (inputPassword !== password);
+
+        const arScene = document.getElementById("ar-scene");
+        arScene.style.opacity = "1";
+        arScene.style.pointerEvents = "auto";
+    });
+  </script>
+  
+</body>
+</html>
